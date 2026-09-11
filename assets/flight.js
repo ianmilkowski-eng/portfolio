@@ -2,18 +2,27 @@ import { flightProgress, tilePose } from './flight-geometry.js';
 
 const grid=document.getElementById('grid');
 const hero=document.querySelector('.hero');
-const tiles=[...grid.children];
+const tiles=[...grid.querySelectorAll('[data-flight]')];
 const control=document.querySelector('[data-motion-toggle]');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const wide=matchMedia('(min-width: 900px)');
-const F={on:false,tiles:[],drift:0,frozenDrift:null,lastT:0,landed:false};
+const F={on:false,tiles:[],drift:-1.6*(Math.min(Math.max(innerWidth*.24,300),380)+26),frozenDrift:null,lastT:0,landed:false};
 let raf=0,paused=false,hovered=false,keyboardMode=false;
 function measure(){
+  // Lead artwork can sit inside positioned editorial layouts. Measure its real
+  // untransformed document rectangle, in separate write/read/write batches.
+  const saved=tiles.map(el=>({transform:el.style.transform,transition:el.style.transition}));
+  tiles.forEach(el=>{el.style.transition='none';el.style.removeProperty('transform');});
   const sy=scrollY,gr=grid.getBoundingClientRect();
   F.heroBottom=hero.getBoundingClientRect().bottom+sy;
   F.gridY=gr.top+sy; F.gridX=gr.left;
   F.gridW=Math.max(grid.offsetWidth,1);F.gridH=Math.max(grid.offsetHeight,1);
-  F.tiles=tiles.map(el=>({el,x:F.gridX+el.offsetLeft,y:F.gridY+el.offsetTop,w:el.offsetWidth,h:el.offsetHeight,hover:0,target:0}));
+  const previous=new Map(F.tiles.map(c=>[c.el,c]));
+  F.tiles=tiles.map(el=>{
+    const r=el.getBoundingClientRect(),old=previous.get(el);
+    return {el,x:r.left,y:r.top+sy,w:r.width,h:r.height,hover:old?.hover||0,target:old?.target||0};
+  }).filter(c=>c.w>0&&c.h>0);
+  tiles.forEach((el,i)=>{el.style.transform=saved[i].transform;el.style.transition=saved[i].transition;});
 }
 function clearFlight(){
   grid.classList.remove('flying');
@@ -87,6 +96,14 @@ document.addEventListener('visibilitychange',()=>{
 window.addEventListener('load',()=>{if(F.on){measure();wake();}});
 document.fonts?.ready.then(()=>{if(F.on){measure();wake();}});
 const strip=document.querySelector('.m-strip');
+let measureFrame=0;
+if('ResizeObserver' in window){
+  const observer=new ResizeObserver(()=>{
+    if(!F.on||measureFrame)return;
+    measureFrame=requestAnimationFrame(()=>{measureFrame=0;if(F.on){measure();wake();}});
+  });
+  observer.observe(grid);observer.observe(hero);
+}
 if('IntersectionObserver' in window){
   new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('in-view',e.isIntersecting))).observe(strip);
 }else strip.classList.add('in-view');

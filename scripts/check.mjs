@@ -86,7 +86,14 @@ for (const p of projects) {
 
 }
 assert(home.includes('class="static"'), 'No-script home must use the static layout');
-assert((home.match(/class="tile(?: feature)?"/g)||[]).length === projects.length + 2, 'Every project must have a real home link');
+const featuredSlugs = ['training-room-fitness-retreat','cialo','milkplexity','row-for-hope-2026','american-250-team-challenge'];
+const featured = [...home.matchAll(/data-featured-project="([^"]+)"/g)].map(m=>m[1]);
+const flight = [...home.matchAll(/data-flight="([^"]+)"/g)].map(m=>m[1]);
+const archived = [...home.matchAll(/data-archive-project="([^"]+)"/g)].map(m=>m[1]);
+assert(JSON.stringify(featured) === JSON.stringify(featuredSlugs), 'Featured projects must appear once, in the curated order');
+assert(JSON.stringify(flight) === JSON.stringify(featuredSlugs), 'Only the five featured covers should move');
+assert(archived.length === 10 && new Set(archived).size === 10 && archived.every(slug=>!featured.includes(slug)), 'Archive must preserve ten other projects without repeating featured work');
+assert(home.includes('<details class="archive-disclosure">'), 'Archive should begin collapsed');
 assert(home.includes('id="contactName"') && home.includes('for="contactName"'), 'Contact form needs visible labels');
 assert((home.match(/<details class="acc-item">/g)||[]).length === 10, 'Craft and FAQ disclosures missing');
 assert(home.includes('Event Graphics') && home.includes('The last five percent is always by hand.'), 'Original personal writing missing');

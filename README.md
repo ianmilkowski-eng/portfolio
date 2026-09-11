@@ -14,9 +14,13 @@ Requires Node.js 22 or newer. No package installation or runtime framework is re
 
 Edit content in `content/projects.json` and personal home-page writing in `src/home.html`. The build creates project links, gallery previews, project counts, and navigation from this data. Add optional `gallery` assets to extend a project without changing its layout. Ciało and Milkplexity artwork is described in their dedicated content manifests; their individual presentations live in `scripts/build.mjs`.
 
+## Featured work and archive
+
+The homepage leads with Training Room Fitness Retreat 2027, Ciało, Milkplexity, Row for Hope 2026/27, and The American 250, in that order. Each has its own artwork composition in `scripts/home.mjs`. The remaining ten projects are preserved in the collapsed archive, with quick previews and full project pages. Supporting brand assets stay alongside their feature; only the five lead covers participate in desktop flight and the mobile strip.
+
 ## Motion and accessibility
 
-`assets/flight-geometry.js` preserves the Netlify choreography. `assets/flight.js` owns desktop flight and mobile decorative-strip playback. The flight uses the actual grid links and lands at their own layout positions; it sleeps after landing and while hidden. Pause stops automatic movement while scrolling still controls the gallery transition. Reduced-motion preferences use a stationary grid. Keyboard navigation into the moving grid switches to a stationary layout, and explicit Play can restore the animation.
+`assets/flight-geometry.js` preserves the Netlify choreography. `assets/flight.js` owns desktop flight and mobile decorative-strip playback. The flight uses only the five featured artwork links, measures their nested editorial layouts, and lands at their own positions; it sleeps after landing and while hidden. Pause stops automatic movement while scrolling still controls the gallery transition. Reduced-motion preferences use the stationary editorial layout. Keyboard navigation into the moving showcase switches to a stationary layout, and explicit Play can restore the animation.
 
 Real project links and native Craft/FAQ disclosures work without JavaScript. Native dialogs provide focus containment, Escape, and focus return. Artwork loads use request guards to avoid stale results after fast navigation. The contact form opens the visitor’s mail app and does not send messages or store submissions itself.
 

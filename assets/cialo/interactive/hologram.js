@@ -59,9 +59,10 @@
     play({speed=1,onFrame,onComplete}={}) {
       this.pause();if(this.disposed||!this.loaded)return this;
       if(this.motion.matches){this.render(this.duration);onComplete?.();return this;}
-      const origin=performance.now();
+      let origin;
       const tick=now=>{
-        const t=(now-origin)*.001*speed;this.render(Math.min(t,this.duration));onFrame?.(this.time);
+        origin ??= now;
+        const t=Math.max(0,(now-origin)*.001*speed);this.render(Math.min(t,this.duration));onFrame?.(this.time);
         if(t<this.duration&&!this.disposed)this.frameId=requestAnimationFrame(tick);else{this.frameId=0;onComplete?.();}
       };this.frameId=requestAnimationFrame(tick);return this;
     }

@@ -90,13 +90,16 @@
     }
     pause('');
     if (fromStart || time >= duration) time = 0;
-    const origin = performance.now() - time * 1000;
+    const initialTime = time;
+    let origin;
+    // Use one animation-frame clock, including in a lazily loaded iframe.
     playing = true;
     toggle.textContent = 'Pause animation';
     status.textContent = 'Animation playing.';
     const tick = now => {
       if (!playing || disposed) return;
-      time = Math.min(duration, (now - origin) / 1000);
+      origin ??= now;
+      time = Math.min(duration, Math.max(0, initialTime + (now - origin) / 1000));
       effect.render(time);
       updateTime();
       if (time < duration) frame = requestAnimationFrame(tick);

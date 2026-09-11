@@ -4,7 +4,7 @@ export const clamp = (v,a,b) => Math.min(Math.max(v,a),b);
 const mix = (a,b,t) => a+(b-a)*t;
 const ease = t => t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
 export function flightProgress({width,height,scroll,heroBottom,gridY}) {
-  const stripW=clamp(width*.24,300,380), anchor=heroBottom+stripW*.78;
+  const stripW=clamp(width*.24,300,380), anchor=heroBottom+stripW*.64;
   const pin=height*.54, start=anchor-pin, hold=height*.14;
   const distance=Math.max(gridY-height*.20-start-hold,height*1.2);
   return {stripW, p:scroll<start?0:clamp((scroll-start-hold)/distance,0,1), yBase:scroll<start?anchor-scroll:pin};
@@ -16,5 +16,5 @@ export function tilePose(c,i,{width,scroll,count,drift,gridX,gridY,gridW,gridH,s
   const k=ease(clamp((p-delay)/.74,0,1));
   if(k>0)x=clamp(x,-stripW,width+stripW);
   const y=yBase+(x-width/2)*-.11-(c.hover||0)*12*(1-k);
-  return {x:mix(x-(c.x+c.w/2),0,k),y:mix(y-(c.y-scroll+c.h/2),0,k)-Math.sin(k*Math.PI)*42,rotation:-11*(1-Math.min(k*1.35,1)),scale:mix(stripW/c.w,1,k)};
+  return {x:mix(x-(c.x+c.w/2),0,k),y:mix(y-(c.y-scroll+c.h/2),0,k)-Math.sin(k*Math.PI)*42,rotation:-11*(1-Math.min(k*1.35,1)),scale:mix(stripW/Math.max(c.w,c.h),1,k)};
 }

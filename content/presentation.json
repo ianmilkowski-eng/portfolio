@@ -1,0 +1,53 @@
+{
+  "fuming-takes": {
+    "size": "large",
+    "note": "A sports podcast collaboration"
+  },
+  "behind-the-venue": {
+    "size": "small",
+    "note": "The podcast I hosted at Iowa",
+    "offset": true
+  },
+  "row-for-hope-2026": {
+    "size": "small",
+    "note": "An identity for a cause"
+  },
+  "row-for-hope-2025": {
+    "size": "large",
+    "note": "Where the event identity began"
+  },
+  "training-room-fitness-retreat": {
+    "size": "large",
+    "note": "My dad’s retreat, Nosara"
+  },
+  "shore-revival": {
+    "size": "small",
+    "note": "A Jersey Shore clothing identity",
+    "offset": true
+  },
+  "finnegan-hauling-v2": {
+    "size": "small",
+    "note": "My own hauling business"
+  },
+  "finnegan-hauling-original": {
+    "size": "large",
+    "note": "Our actual truck. On our crew shirts."
+  },
+  "carton-cares-dog-sitting": {
+    "size": "large",
+    "note": "For a friend’s dog-sitting business"
+  },
+  "the-k-league": {
+    "size": "small",
+    "note": "A fantasy league with some personality",
+    "offset": true
+  },
+  "id-hit-that": {
+    "size": "small",
+    "note": "For my volleyball team"
+  },
+  "block-oclock": {
+    "size": "large",
+    "note": "A volleyball identity with a neon streak"
+  }
+}

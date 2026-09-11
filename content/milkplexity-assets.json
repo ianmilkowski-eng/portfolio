@@ -1,0 +1,73 @@
+[
+  {
+    "slug": "main-logo",
+    "src": "assets/milkplexity/main-logo.png",
+    "width": 1536,
+    "height": 1024,
+    "alt": "Milkplexity main logo: a tilted glass pouring milk into AI lettering, beside a white-and-cyan Milkplexity wordmark",
+    "caption": "The main Milkplexity logo, with the pouring-glass symbol and horizontal wordmark.",
+    "bytes": 231269,
+    "sha256": "42a9c1dc3a47f3f5e4c6368a424de1c075f3cb081bb182b21a8305ebf4a7023c",
+    "variants": [
+      {
+        "src": "assets/milkplexity/main-logo-480.webp",
+        "width": 480,
+        "bytes": 15728
+      },
+      {
+        "src": "assets/milkplexity/main-logo-960.webp",
+        "width": 960,
+        "bytes": 35332
+      },
+      {
+        "src": "assets/milkplexity/main-logo-1440.webp",
+        "width": 1440,
+        "bytes": 57258
+      }
+    ]
+  },
+  {
+    "slug": "icon",
+    "src": "assets/milkplexity/icon.png",
+    "width": 1254,
+    "height": 1254,
+    "alt": "Standalone Milkplexity icon: a cyan outlined glass pouring white milk into AI lettering on black",
+    "caption": "The standalone Milkplexity icon, without the wordmark.",
+    "bytes": 1154188,
+    "sha256": "d13f02247d27666b72beda006cd78eda24facd290d9363cb48f71c5ab2fefb1d",
+    "variants": [
+      {
+        "src": "assets/milkplexity/icon-480.webp",
+        "width": 480,
+        "bytes": 16390
+      },
+      {
+        "src": "assets/milkplexity/icon-960.webp",
+        "width": 960,
+        "bytes": 38936
+      }
+    ]
+  },
+  {
+    "slug": "learn",
+    "src": "assets/milkplexity/learn.png",
+    "width": 1254,
+    "height": 1254,
+    "alt": "Milkplexity Learn artwork: a tilted cyan-outlined glass pours white milk into AI lettering, beside “67”, “ask”, and a question mark on black.",
+    "caption": "Milkplexity Learn — cyan and white lettering, a tipped milk glass, and a flowing AI motif.",
+    "bytes": 1275707,
+    "sha256": "9d81bfc04ebd5dd6a9b26ef6bf0d186a0db8318b69974a59a7378cead666aae7",
+    "variants": [
+      {
+        "src": "assets/milkplexity/learn-480.webp",
+        "width": 480,
+        "bytes": 18472
+      },
+      {
+        "src": "assets/milkplexity/learn-960.webp",
+        "width": 960,
+        "bytes": 41244
+      }
+    ]
+  }
+]

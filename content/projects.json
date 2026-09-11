@@ -1,0 +1,251 @@
+[
+  {
+    "slug": "fuming-takes",
+    "title": "Fuming Takes",
+    "description": "Updated professional logo for a sports podcast produced in partnership with Adapting Social. I created the original vision and prototype, then designed this polished final version.",
+    "category": {
+      "id": "podcast-media",
+      "label": "Podcast & Media"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2026",
+    "image": {
+      "src": "assets/projects/fuming-takes.jpg",
+      "width": 800,
+      "height": 534,
+      "alt": "Fuming Takes"
+    }
+  },
+  {
+    "slug": "behind-the-venue",
+    "title": "Behind The Venue",
+    "description": "Cover art for a podcast I hosted at the University of Iowa. Built from scratch in Photoshop with custom typography and an illustrated stadium concept.",
+    "category": {
+      "id": "podcast-media",
+      "label": "Podcast & Media"
+    },
+    "tags": [
+      "Photoshop"
+    ],
+    "toolsLabel": "Photoshop",
+    "year": "2022",
+    "image": {
+      "src": "assets/projects/behind-the-venue.jpg",
+      "width": 800,
+      "height": 800,
+      "alt": "Behind The Venue"
+    }
+  },
+  {
+    "slug": "row-for-hope-2026",
+    "title": "Row for Hope 2026",
+    "description": "Pre-release logo for Hero Events' annual Brain Cancer Awareness charity event. Shield-style badge designed to convey strength and purpose for the upcoming year.",
+    "category": {
+      "id": "charity-events",
+      "label": "Charity & Events"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2026",
+    "image": {
+      "src": "assets/projects/row-for-hope-2026.jpg",
+      "width": 800,
+      "height": 800,
+      "alt": "Row for Hope 2026"
+    }
+  },
+  {
+    "slug": "row-for-hope-2025",
+    "title": "Row for Hope 2025",
+    "description": "Original logo for the Row for Hope charity event benefiting Brain Cancer Awareness. Bold, minimalist design built around a rowing figure.",
+    "category": {
+      "id": "charity-events",
+      "label": "Charity & Events"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2025",
+    "image": {
+      "src": "assets/projects/row-for-hope-2025.jpg",
+      "width": 800,
+      "height": 800,
+      "alt": "Row for Hope 2025"
+    }
+  },
+  {
+    "slug": "training-room-fitness-retreat",
+    "title": "Training Room Fitness Retreat",
+    "description": "Promotional graphic for The Training Room's annual fitness retreat in Nosara, Costa Rica. Retro surf-inspired design to capture the energy of the trip.",
+    "category": {
+      "id": "charity-events",
+      "label": "Charity & Events"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2026",
+    "image": {
+      "src": "assets/projects/training-room-fitness-retreat.jpg",
+      "width": 800,
+      "height": 597,
+      "alt": "Training Room Fitness Retreat"
+    }
+  },
+  {
+    "slug": "shore-revival",
+    "title": "Shore Revival",
+    "description": "Brand identity for an upcoming clothing line. Jersey Shore-inspired design with a jetty, lighthouse, and coastal textures built into a custom letterform.",
+    "category": {
+      "id": "business-branding",
+      "label": "Business Branding"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2025",
+    "image": {
+      "src": "assets/projects/shore-revival.jpg",
+      "width": 707,
+      "height": 800,
+      "alt": "Shore Revival"
+    }
+  },
+  {
+    "slug": "finnegan-hauling-v2",
+    "title": "Finnegan Hauling (v2)",
+    "description": "Updated brand identity for my own service company. Evolved the original Photoshop logo into a more polished, professional mark using AI generation tools.",
+    "category": {
+      "id": "business-branding",
+      "label": "Business Branding"
+    },
+    "tags": [
+      "AI Generation"
+    ],
+    "toolsLabel": "AI Generation",
+    "year": "2023",
+    "image": {
+      "src": "assets/projects/finnegan-hauling-v2.jpg",
+      "width": 800,
+      "height": 800,
+      "alt": "Finnegan Hauling (v2)"
+    }
+  },
+  {
+    "slug": "finnegan-hauling-original",
+    "title": "Finnegan Hauling (Original)",
+    "description": "First-generation logo I designed for my junk removal business. Illustrated our actual work truck in a classic circular badge. Printed on crew shirts.",
+    "category": {
+      "id": "business-branding",
+      "label": "Business Branding"
+    },
+    "tags": [
+      "Photoshop"
+    ],
+    "toolsLabel": "Photoshop",
+    "year": "2021",
+    "image": {
+      "src": "assets/projects/finnegan-hauling-original.jpg",
+      "width": 588,
+      "height": 426,
+      "alt": "Finnegan Hauling (Original)"
+    }
+  },
+  {
+    "slug": "carton-cares-dog-sitting",
+    "title": "Carton Cares Dog Sitting",
+    "description": "Custom logo for a friend's dog sitting business. Friendly, approachable style with a personalized illustrated portrait.",
+    "category": {
+      "id": "business-branding",
+      "label": "Business Branding"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2025",
+    "image": {
+      "src": "assets/projects/carton-cares-dog-sitting.jpg",
+      "width": 800,
+      "height": 752,
+      "alt": "Carton Cares Dog Sitting"
+    }
+  },
+  {
+    "slug": "the-k-league",
+    "title": "The K League",
+    "description": "Logo for a competitive fantasy football league with a big prize pool. Wanted a fun, bold look that matched the energy of the group.",
+    "category": {
+      "id": "passion-project",
+      "label": "Passion Project"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2025",
+    "image": {
+      "src": "assets/projects/the-k-league.jpg",
+      "width": 800,
+      "height": 800,
+      "alt": "The K League"
+    }
+  },
+  {
+    "slug": "id-hit-that",
+    "title": "I'd Hit That",
+    "description": "Team graphic for my volleyball squad. Dynamic, high-energy design with motion lines and a bold color scheme.",
+    "category": {
+      "id": "passion-project",
+      "label": "Passion Project"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2024",
+    "image": {
+      "src": "assets/projects/id-hit-that.jpg",
+      "width": 800,
+      "height": 800,
+      "alt": "I'd Hit That"
+    }
+  },
+  {
+    "slug": "block-oclock",
+    "title": "Block O'Clock",
+    "description": "Neon-style graphic designed for my volleyball team. Fun retro bar sign energy the team could rally behind.",
+    "category": {
+      "id": "passion-project",
+      "label": "Passion Project"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2025",
+    "image": {
+      "src": "assets/projects/block-oclock.jpg",
+      "width": 800,
+      "height": 800,
+      "alt": "Block O'Clock"
+    }
+  }
+]

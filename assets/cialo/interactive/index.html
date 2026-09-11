@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="color-scheme" content="dark">
+  <title>Ciało — interactive logo</title>
+  <link rel="stylesheet" href="player.css">
+  <script src="assets/mesh-data.js" defer></script>
+  <script src="hologram.js" defer></script>
+  <script src="player.js" defer></script>
+</head>
+<body>
+  <main aria-label="Ciało logo animation">
+    <div class="artwork" id="artwork">
+      <div class="fallback" id="fallback">
+        <img src="assets/wordmark.webp" width="1696" height="736" alt="Ciało: ivory lettering with a glowing orange, faceted ł shaped like flexed arms.">
+        <img class="endorsement" src="assets/endorsement.webp" width="816" height="112" alt="Powered by Milkplexity">
+      </div>
+      <canvas id="stage" width="960" height="540" role="img" aria-label="Orange points and lines assemble into the Ciało logo, followed by the words Powered by Milkplexity." hidden></canvas>
+    </div>
+    <div class="controls" aria-label="Animation controls">
+      <button id="toggle" type="button" disabled>Play animation</button>
+      <button id="restart" class="secondary" type="button" disabled>Replay</button>
+      <label class="timeline" for="progress">
+        <span class="sr-only">Animation progress in seconds</span>
+        <input id="progress" type="range" min="0" max="4.4" step="0.01" value="0" disabled>
+      </label>
+      <span class="time" id="time" aria-hidden="true">0.0 / 4.4 s</span>
+      <p id="status" role="status">4.4-second sequence. Press Play to begin.</p>
+    </div>
+    <noscript><p class="no-script">The original Ciało logo is shown above. Enable JavaScript to use the interactive animation.</p></noscript>
+  </main>
+</body>
+</html>

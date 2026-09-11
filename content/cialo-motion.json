@@ -1,0 +1,63 @@
+{
+  "archiveName": "Cialo-Logo-Animation-Source.zip",
+  "durationSeconds": 4.4,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "framesPerSecond": 60,
+    "audio": false
+  },
+  "animationMethod": "Canvas 2D; measured silhouette with reconstructed temporary mesh; original source artwork at rest",
+  "review": "Renderer uses local images and geometry only. Original review player excluded: autoplay and local rendering/export endpoint replaced by accessible user controls. Development server and build tools excluded.",
+  "files": [
+    {
+      "file": "assets/cialo/motion.mp4",
+      "sourceEntry": "Cialo-Hologram-v2/Cialo-Logo-Animation.mp4",
+      "bytes": 988144,
+      "sha256": "cf8d6e468400535526fe0a1e44471e0a677c4b13d3373f3a01dc7f02a67bbc33",
+      "unchanged": true
+    },
+    {
+      "file": "assets/cialo/motion.gif",
+      "sourceEntry": "Cialo-Hologram-v2/Cialo-Logo-Animation.gif",
+      "bytes": 3471286,
+      "sha256": "9cef419f3a64b0bf0acaa6794d3417c181cdb2c9da52b950c5a1c2cc6a7e2a95",
+      "unchanged": true
+    },
+    {
+      "file": "assets/cialo/interactive/hologram.js",
+      "sourceEntry": "Cialo-Hologram-v2/dist/hologram.js",
+      "bytes": 11523,
+      "sha256": "dbb409e08ea285565a37ea3e4a8da165ae2c03e257411f0da3b03fbecd177afd",
+      "unchanged": true
+    },
+    {
+      "file": "assets/cialo/interactive/assets/mesh-data.js",
+      "sourceEntry": "Cialo-Hologram-v2/dist/assets/mesh-data.js",
+      "bytes": 21748,
+      "sha256": "0ad9066b2a12ebd2ca1a2d759bcab4b0ab250fa0dd0c69f5b4df5571ce737fb2",
+      "unchanged": true
+    },
+    {
+      "file": "assets/cialo/interactive/assets/wordmark.webp",
+      "sourceEntry": "Cialo-Hologram-v2/dist/assets/wordmark.webp",
+      "bytes": 485918,
+      "sha256": "070f7d66fe8e2b2205090f1e64f7466ae9065bf79664b0d9d99511434474a82e",
+      "unchanged": true
+    },
+    {
+      "file": "assets/cialo/interactive/assets/endorsement.webp",
+      "sourceEntry": "Cialo-Hologram-v2/dist/assets/endorsement.webp",
+      "bytes": 49348,
+      "sha256": "ebc737aecc646196d48dea46d54b75299caa448bb8359c71ded10c43d6b197c3",
+      "unchanged": true
+    }
+  ],
+  "validation": {
+    "sourceHashes": "All imported files byte-identical to named ZIP entries.",
+    "videoProbe": "MP4 verified: 1920 × 1080, 60 fps, 4.400000 seconds, video stream only.",
+    "scripts": "All three JavaScript files passed syntax checks.",
+    "controller": "Simulated-DOM checks passed: no autoplay, deferred renderer creation, pause/resume, scrubbing, replay, final frame hold, reduced motion, and asset-load fallback.",
+    "visualBrowserTest": "Not performed for this embed."
+  }
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "fuming-takes",
+    "src": "assets/projects/fuming-takes.jpg",
+    "bytes": 71459,
+    "sha256": "f74a357d748549a267660ed1ba397b2873b8206ce6edef6536ac3876ee01bc38"
+  },
+  {
+    "slug": "behind-the-venue",
+    "src": "assets/projects/behind-the-venue.jpg",
+    "bytes": 73964,
+    "sha256": "fb58c22d702fc96e1354b80a237e08ac2133bdb234eef7475e4eec76d39d8d02"
+  },
+  {
+    "slug": "row-for-hope-2026",
+    "src": "assets/projects/row-for-hope-2026.jpg",
+    "bytes": 41913,
+    "sha256": "a738bbb42ca05e9f9bcf1e94bd8a7e260721ec74e83f3b55227e110815b0b428"
+  },
+  {
+    "slug": "row-for-hope-2025",
+    "src": "assets/projects/row-for-hope-2025.jpg",
+    "bytes": 71076,
+    "sha256": "b358f63d90b3ee87492a8292f0172fb680b32d634a7fc1c654cdb011914d1ada"
+  },
+  {
+    "slug": "training-room-fitness-retreat",
+    "src": "assets/projects/training-room-fitness-retreat.jpg",
+    "bytes": 108012,
+    "sha256": "51302d6066641fdcddd412f15ee6efe3c407e9580f296796ff378217b73169c6"
+  },
+  {
+    "slug": "shore-revival",
+    "src": "assets/projects/shore-revival.jpg",
+    "bytes": 73664,
+    "sha256": "514ea373f91ac71117cbd2b168696dc5028d5c7072019ab5ce5eb9fcef7e7a73"
+  },
+  {
+    "slug": "finnegan-hauling-v2",
+    "src": "assets/projects/finnegan-hauling-v2.jpg",
+    "bytes": 94757,
+    "sha256": "f6b249b7d073c6fa3d0e58abcaf3aebd4f9de53cd7b99051d64a5e6780faa8fb"
+  },
+  {
+    "slug": "finnegan-hauling-original",
+    "src": "assets/projects/finnegan-hauling-original.jpg",
+    "bytes": 49250,
+    "sha256": "6d1864ee1f79cabcbc1857527f549c068df47c28b08403790e2a4c00f5d48d86"
+  },
+  {
+    "slug": "carton-cares-dog-sitting",
+    "src": "assets/projects/carton-cares-dog-sitting.jpg",
+    "bytes": 71307,
+    "sha256": "cfe9ad22963ca85584261f5fcceb59e9de19d4b8c6be0e779b019842e594e038"
+  },
+  {
+    "slug": "the-k-league",
+    "src": "assets/projects/the-k-league.jpg",
+    "bytes": 118089,
+    "sha256": "bc589a47073e4c71005dd4fede2eb494edb576f9b0e71a15d7329a7268131a69"
+  },
+  {
+    "slug": "id-hit-that",
+    "src": "assets/projects/id-hit-that.jpg",
+    "bytes": 105552,
+    "sha256": "09bce756c6e46d11cca627970b4d58c6bf19215ed63bbd58c329a69f6cfafbbd"
+  },
+  {
+    "slug": "block-oclock",
+    "src": "assets/projects/block-oclock.jpg",
+    "bytes": 85063,
+    "sha256": "f0ee9e3aab5e0fffaf6bd8519867cd0d802707143c278babbcb8f3f21d488896"
+  }
+]

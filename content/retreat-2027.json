@@ -1,0 +1,21 @@
+{
+  "slug": "training-room-retreat-2027",
+  "src": "assets/projects/training-room-retreat-2027.png",
+  "alt": "The Training Room Costa Rica Fitness Retreat, Nosara 2027: turquoise lettering, a sunset and hibiscus flowers",
+  "width": 1254,
+  "height": 1254,
+  "bytes": 1341819,
+  "sha256": "2b99b508b880f0e426bb76044b2083d4c822fd65196113d5b46ba1168b2e301d",
+  "variants": [
+    {
+      "src": "assets/projects/training-room-retreat-2027-480.webp",
+      "width": 480,
+      "bytes": 30594
+    },
+    {
+      "src": "assets/projects/training-room-retreat-2027-960.webp",
+      "width": 960,
+      "bytes": 69650
+    }
+  ]
+}

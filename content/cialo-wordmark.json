@@ -1,0 +1,18 @@
+{
+  "src": "assets/cialo/interactive/assets/wordmark.webp",
+  "width": 1696,
+  "height": 736,
+  "alt": "Cia\u0142o wordmark with an illuminated amber symbol on black",
+  "variants": [
+    {
+      "src": "assets/cialo/wordmark-clean-480.webp",
+      "width": 480,
+      "bytes": 13008
+    },
+    {
+      "src": "assets/cialo/wordmark-clean-960.webp",
+      "width": 960,
+      "bytes": 31556
+    }
+  ]
+}

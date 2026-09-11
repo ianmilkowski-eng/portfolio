@@ -1,0 +1,233 @@
+[
+  {
+    "slug": "wordmark",
+    "src": "assets/cialo/wordmark.png",
+    "alt": "Ciało wordmark with a glowing amber symbol",
+    "width": 1696,
+    "height": 736,
+    "bytes": 702272,
+    "sha256": "69216478e2b78593a9d10af5057f9ca6f83a9b6a59be35d07ce7230ae0aa7295",
+    "variants": [
+      {
+        "src": "assets/cialo/wordmark-480.webp",
+        "width": 480,
+        "bytes": 23498
+      },
+      {
+        "src": "assets/cialo/wordmark-960.webp",
+        "width": 960,
+        "bytes": 62726
+      }
+    ]
+  },
+  {
+    "slug": "app-icon",
+    "src": "assets/cialo/app-icon.png",
+    "alt": "Ciało amber app icon",
+    "width": 1024,
+    "height": 1024,
+    "bytes": 259884,
+    "sha256": "9a24127bae53275c7a42936eef54b52df96cada30474df8fb1a22e757537c388",
+    "variants": [
+      {
+        "src": "assets/cialo/app-icon-480.webp",
+        "width": 480,
+        "bytes": 10608
+      },
+      {
+        "src": "assets/cialo/app-icon-960.webp",
+        "width": 960,
+        "bytes": 27856
+      }
+    ]
+  },
+  {
+    "slug": "symbol-flat",
+    "src": "assets/cialo/symbol-flat.png",
+    "alt": "Flat amber Ciało symbol",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 562937,
+    "sha256": "e116bad876d0f542d02de86ab66e220d36e2e29ee9b37f12ec669bfedc138395",
+    "variants": [
+      {
+        "src": "assets/cialo/symbol-flat-480.webp",
+        "width": 480,
+        "bytes": 4132
+      },
+      {
+        "src": "assets/cialo/symbol-flat-960.webp",
+        "width": 960,
+        "bytes": 9070
+      }
+    ]
+  },
+  {
+    "slug": "symbol-faceted",
+    "src": "assets/cialo/symbol-faceted.png",
+    "alt": "Faceted amber Ciało symbol",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 729291,
+    "sha256": "7b857852d0288823d4f47f66c21396ef671730558c35c1b2c57d3cbb8a4d51d3",
+    "variants": [
+      {
+        "src": "assets/cialo/symbol-faceted-480.webp",
+        "width": 480,
+        "bytes": 11496
+      },
+      {
+        "src": "assets/cialo/symbol-faceted-960.webp",
+        "width": 960,
+        "bytes": 30048
+      }
+    ]
+  },
+  {
+    "slug": "symbol-wireframe",
+    "src": "assets/cialo/symbol-wireframe.png",
+    "alt": "Glowing wireframe Ciało symbol",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 929515,
+    "sha256": "e76493596b0d0cbda8fe64f53fa57abdf6e5078f22d7b39b245d43d006852ee2",
+    "variants": [
+      {
+        "src": "assets/cialo/symbol-wireframe-480.webp",
+        "width": 480,
+        "bytes": 18146
+      },
+      {
+        "src": "assets/cialo/symbol-wireframe-960.webp",
+        "width": 960,
+        "bytes": 52136
+      }
+    ]
+  },
+  {
+    "slug": "wordmark-endorsed",
+    "src": "assets/cialo/wordmark-endorsed.png",
+    "alt": "Ciało wordmark with Powered by Milkplexity endorsement",
+    "width": 1672,
+    "height": 941,
+    "bytes": 634709,
+    "sha256": "da7aa570a6a4e1cae3c286c692177c3e269145d7aa33a5fd13b00ade1e274ccf",
+    "variants": [
+      {
+        "src": "assets/cialo/wordmark-endorsed-480.webp",
+        "width": 480,
+        "bytes": 8890
+      },
+      {
+        "src": "assets/cialo/wordmark-endorsed-960.webp",
+        "width": 960,
+        "bytes": 21598
+      }
+    ]
+  },
+  {
+    "slug": "color-amber",
+    "src": "assets/cialo/color-amber.png",
+    "alt": "Ciało identity in amber",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 787119,
+    "sha256": "d6817a68268224260b14b9f11e7652f50461e3f88e041d51a3d9af4e7b30f71a",
+    "variants": [
+      {
+        "src": "assets/cialo/color-amber-480.webp",
+        "width": 480,
+        "bytes": 10380
+      },
+      {
+        "src": "assets/cialo/color-amber-960.webp",
+        "width": 960,
+        "bytes": 25792
+      }
+    ]
+  },
+  {
+    "slug": "color-gold",
+    "src": "assets/cialo/color-gold.png",
+    "alt": "Ciało identity in gold",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 910584,
+    "sha256": "5774f140784e987512becc4916410594b0fa014801739bda8831f18b9e3a050f",
+    "variants": [
+      {
+        "src": "assets/cialo/color-gold-480.webp",
+        "width": 480,
+        "bytes": 10234
+      },
+      {
+        "src": "assets/cialo/color-gold-960.webp",
+        "width": 960,
+        "bytes": 25466
+      }
+    ]
+  },
+  {
+    "slug": "color-pink",
+    "src": "assets/cialo/color-pink.png",
+    "alt": "Ciało identity in pink",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 904016,
+    "sha256": "362162a9e25e071c52f35cca1636b9eef68e567c0262782579da333da05b2b25",
+    "variants": [
+      {
+        "src": "assets/cialo/color-pink-480.webp",
+        "width": 480,
+        "bytes": 10056
+      },
+      {
+        "src": "assets/cialo/color-pink-960.webp",
+        "width": 960,
+        "bytes": 24910
+      }
+    ]
+  },
+  {
+    "slug": "color-green",
+    "src": "assets/cialo/color-green.png",
+    "alt": "Ciało identity in green",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 926503,
+    "sha256": "8615360ea9f4227fb502ee0cd6e60b6c8a1ac8f7ccccb5cb59109eee618598ee",
+    "variants": [
+      {
+        "src": "assets/cialo/color-green-480.webp",
+        "width": 480,
+        "bytes": 10090
+      },
+      {
+        "src": "assets/cialo/color-green-960.webp",
+        "width": 960,
+        "bytes": 24994
+      }
+    ]
+  },
+  {
+    "slug": "color-violet",
+    "src": "assets/cialo/color-violet.png",
+    "alt": "Ciało identity in violet",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 757887,
+    "sha256": "4143c155138c0466aaf9e3787a188b07c8692c2904cabb1e1744f7a7cf894e7c",
+    "variants": [
+      {
+        "src": "assets/cialo/color-violet-480.webp",
+        "width": 480,
+        "bytes": 10040
+      },
+      {
+        "src": "assets/cialo/color-violet-960.webp",
+        "width": 960,
+        "bytes": 25010
+      }
+    ]
+  }
+]

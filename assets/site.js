@@ -1,41 +1,6 @@
 (() => {
   "use strict";
 
-  function initializeFilters() {
-    const controls = document.querySelector("[data-filters]");
-    const cards = [...document.querySelectorAll("[data-project][data-category]")];
-    if (!controls || !cards.length) return;
-
-    const buttons = [...controls.querySelectorAll("button[data-filter]")];
-    const status = document.querySelector("[data-filter-status]");
-    if (!buttons.length) return;
-
-    function selectFilter(button, announce) {
-      const category = button.dataset.filter;
-      const grid = document.querySelector(".project-grid");
-      if (grid) grid.dataset.filtered = String(category !== "all");
-      let count = 0;
-      for (const card of cards) {
-        const visible = category === "all" || card.dataset.category === category;
-        card.hidden = !visible;
-        if (visible) count += 1;
-      }
-      for (const option of buttons) {
-        option.setAttribute("aria-pressed", String(option === button));
-      }
-      if (status && announce) {
-        const label = category === "all" ? "" : ` in ${button.textContent.trim()}`;
-        status.textContent = `${count} ${count === 1 ? "project" : "projects"}${label}.`;
-      }
-    }
-
-    for (const button of buttons) {
-      button.addEventListener("click", () => selectFilter(button, true));
-    }
-    selectFilter(buttons.find((button) => button.dataset.filter === "all") || buttons[0], false);
-    controls.hidden = false;
-  }
-
   function initializeViewer() {
     const dialog = document.querySelector("#image-viewer");
     if (!dialog || typeof dialog.showModal !== "function") return;
@@ -202,7 +167,6 @@
   }
 
   function initialize() {
-    initializeFilters();
     initializeViewer();
     initializeColorSelector();
   }

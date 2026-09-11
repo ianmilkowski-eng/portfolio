@@ -1,6 +1,7 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { homepage } from './home.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = async file => JSON.parse(await readFile(path.join(root, file), 'utf8'));
@@ -8,12 +9,11 @@ const projects = await read('content/projects.json');
 const cialo = await read('content/cialo-assets.json');
 const retreat = await read('content/retreat-2027.json');
 const cleanWordmark = await read('content/cialo-wordmark.json');
-const presentation = await read('content/presentation.json');
 const milkplexity = await read('content/milkplexity-assets.json');
 const milkAsset = slug => milkplexity.find(item => item.slug === slug);
 const asset = slug => cialo.find(item => item.slug === slug);
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const origin = 'https://ianmilkowski-eng.github.io/portfolio/';
+const origin = 'https://ianmilkowski.netlify.app/';
 const arrow = '<span aria-hidden="true">↗</span>';
 const image = (item, prefix = '', options = {}) => {
   const variants = item.variants || [];
@@ -35,39 +35,19 @@ function shell({title, description, route = '', body, theme = '', socialImage = 
 <meta property="og:type" content="website"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${origin}${route}"><meta property="og:image" content="${origin}${og}"><meta property="og:image:alt" content="${esc(socialAlt)}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${prefix}assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${prefix}assets/site.css"><link rel="stylesheet" href="${prefix}assets/editorial.css"><script src="${prefix}assets/site.js" defer></script><script src="${prefix}assets/motion.js" defer></script>
 </head><body class="${theme}">
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-nav wrap"><a class="signature" href="${prefix || './'}" aria-label="Ian Milkowski, home">IM<span aria-hidden="true">.</span></a><nav aria-label="Main navigation"><a href="${prefix}#work">Work</a><a href="${prefix}#about">About</a><a href="${prefix}#contact">Contact ${arrow}</a></nav></header>
+<header class="site-nav wrap"><a class="signature" href="${prefix || './'}" aria-label="Ian Milkowski, home">Ian Milkowski<span aria-hidden="true">.</span></a><nav aria-label="Main navigation"><a href="${prefix}#work">Work</a><a href="${prefix}#craft">Craft</a><a href="${prefix}#contact">Contact ${arrow}</a></nav></header>
 <main id="main">${body}</main>
-<footer class="site-footer wrap"><a class="signature" href="${prefix || './'}">IM<span aria-hidden="true">.</span></a><p>© 2026 Ian Milkowski</p><a href="https://linkedin.com/in/ian-milkowski" rel="noopener noreferrer" target="_blank">LinkedIn ${arrow}<span class="sr-only"> (opens a new tab)</span></a><a href="#main">Back to top ↑</a></footer>
+<footer class="site-footer wrap"><a class="signature" href="${prefix || './'}">Ian Milkowski<span aria-hidden="true">.</span></a><p>© 2026 Ian Milkowski</p><a href="https://linkedin.com/in/ian-milkowski" rel="noopener noreferrer" target="_blank">LinkedIn ${arrow}<span class="sr-only"> (opens a new tab)</span></a><a href="#main">Back to top ↑</a></footer>
 <dialog id="image-viewer" aria-labelledby="viewer-title"><div class="viewer-toolbar"><p id="viewer-title">Artwork</p><button type="button" data-viewer-close autofocus>Close <span aria-hidden="true">×</span></button></div><img data-viewer-image alt=""><p data-viewer-caption></p><div class="viewer-nav"><button type="button" data-viewer-prev>Previous image</button><span data-viewer-count></span><button type="button" data-viewer-next>Next image</button></div></dialog>
 </body></html>\n`;
 }
 
 function contact(prefix = '') {
   return `<section class="contact-block wrap" id="contact"><div><p class="eyebrow">Projects & opportunities</p><h2>Have a project<br><em>or a role in mind?</em></h2><p>Tell me what you’re working on. I’m interested in creative collaborations, brand projects, and opportunities to join a team.</p></div><div class="contact-links"><a class="text-link" href="mailto:ianmilkowski@gmail.com">ianmilkowski@gmail.com ${arrow}</a><a href="https://linkedin.com/in/ian-milkowski" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ${arrow}<span class="sr-only"> (opens a new tab)</span></a><a href="tel:9084338907">908.433.8907</a></div></section>`;
-}
-
-function homepage() {
-  const categories = [...new Map(projects.map(p => [p.category.id, p.category])).values()];
-  const cards = projects.map((p, i) => {
-    const isRetreat = p.slug === 'training-room-fitness-retreat';
-    const cover = isRetreat ? retreat : p.image;
-    const direction = presentation[p.slug] || { size: 'small' };
-    return `<article class="project-card" data-project data-reveal data-size="${direction.size}" data-offset="${Boolean(direction.offset)}" data-category="${p.category.id}"><a class="project-image" href="projects/${p.slug}/" aria-label="View ${esc(p.title)}">${image(cover,'',{sizes:'(max-width: 680px) 92vw, 52vw'})}<span class="project-index" aria-hidden="true">${String(i + 3).padStart(2, '0')}</span><span class="project-open" aria-hidden="true">${arrow}</span></a><div class="project-card-copy"><p class="personal-note">${esc(direction.note || p.category.label)}</p><div class="project-meta"><span>${esc(p.category.label)}</span><span>${isRetreat ? '2027 edition' : esc(p.year)}</span></div><h3><a href="projects/${p.slug}/">${esc(p.title)}</a></h3><p class="project-summary">${isRetreat ? 'Branding for my dad’s fitness retreat in Nosara, Costa Rica. The 2027 identity brings together retro lettering, coastal color, and hibiscus flowers.' : esc(p.description)}</p><a class="project-detail" href="projects/${p.slug}/">View project <span aria-hidden="true">→</span><span class="sr-only">: ${esc(p.title)}</span></a></div></article>`;
-  }).join('\n');
-  return shell({title:'Ian Milkowski | Creative Portfolio',description:'Brand identity, event graphics, and media by Ian Milkowski. Explore Ciało, Milkplexity, The Training Room, and artwork for businesses, teams, and causes.',body:`
-<section class="hero wrap"><div class="hero-copy"><p class="eyebrow">Ian Milkowski / Creative portfolio</p><h1 class="name">Ian<br>Milkowski<span>.</span></h1><div class="hero-intro"><p class="hero-services">Brand identity, event graphics,<br>and media with a personal connection.</p><p>For the businesses I’ve built, the teams I play on, and the people I work with.</p><a class="text-link" href="#work">Take a look around <span aria-hidden="true">↓</span></a></div></div><div class="hero-artboard"><div class="hero-stage" aria-label="A composition of selected artwork"><p class="artboard-label" aria-hidden="true">A few pieces from my world</p><a class="floating-art float-podcast" href="projects/behind-the-venue/" aria-label="Explore Behind The Venue, the podcast I hosted at Iowa">${image(projects.find(p=>p.slug==='behind-the-venue').image,'',{sizes:'(max-width: 680px) 38vw, 19vw',alt:''})}<span aria-hidden="true">Iowa, 2022</span></a><a class="floating-art float-retreat" href="projects/training-room-fitness-retreat/" aria-label="Explore my dad’s Training Room fitness retreat">${image(retreat,'',{eager:true,sizes:'(max-width: 680px) 62vw, 32vw',alt:''})}<span aria-hidden="true">Nosara, 2027</span></a><a class="floating-art float-fuming" href="projects/fuming-takes/" aria-label="Explore the Fuming Takes sports podcast identity">${image(projects.find(p=>p.slug==='fuming-takes').image,'',{sizes:'(max-width: 680px) 43vw, 22vw',alt:''})}<span aria-hidden="true">Fuming Takes</span></a><span class="artboard-cross cross-one" aria-hidden="true">+</span><span class="artboard-cross cross-two" aria-hidden="true">+</span></div><div class="artboard-footer"><p>Selected artwork <span aria-hidden="true">↖</span></p><button type="button" class="motion-toggle" data-motion-toggle hidden aria-pressed="false">Pause motion</button></div></div></section>
-<section id="work" class="work-section wrap" aria-labelledby="work-heading"><div class="section-heading"><div><p class="eyebrow">01 / The work</p><h2 id="work-heading">Selected work<span class="heading-mark" aria-hidden="true">/</span></h2></div><p>A closer look at the identities,<br>artwork, and stories behind them.</p></div>
-<article class="featured-project" data-reveal><a class="feature-art" href="projects/cialo/" aria-label="Explore the Ciało brand identity">${image(cleanWordmark,'',{sizes:'(max-width: 680px) 92vw, 85vw'})}<span class="feature-detail" aria-hidden="true">${image(asset('symbol-wireframe'),'',{sizes:'18vw',alt:''})}</span><span class="feature-note">Personal brand identity · 2026</span><span class="feature-arrow" aria-hidden="true">↗</span></a><div class="featured-caption"><div><p class="eyebrow">01 / My own brand</p><h3><a href="projects/cialo/">Ciało</a></h3></div><p>My own identity, built around a sculptural ł. A wordmark, an icon, five color studies, and the original animation.</p><a class="text-link" href="projects/cialo/">Explore the identity ${arrow}</a></div></article>
-<article class="milk-feature" data-reveal><div class="milk-feature-art"><a href="projects/milkplexity/" aria-label="Explore the Milkplexity main identity">${image(milkAsset('main-logo'),'',{sizes:'(max-width: 680px) 92vw, 55vw'})}</a></div><div class="milk-feature-copy"><p class="eyebrow">02 / Milkplexity</p><h3>A different side<br><em>of my own work.</em></h3><p>The main Milkplexity identity and Milkplexity Learn. A familiar pouring-glass symbol, expressed in cyan, white, and rounded lettering.</p><a class="text-link" href="projects/milkplexity/">Explore Milkplexity ${arrow}</a></div><a class="milk-feature-learn" href="projects/milkplexity/#learn" aria-label="Explore the Milkplexity Learn artwork">${image(milkAsset('learn'),'',{sizes:'(max-width: 680px) 38vw, 18vw',alt:''})}<span>Milkplexity Learn <span aria-hidden="true">↗</span></span></a></article>
-<div class="collection-heading"><h2>The project archive</h2><p>From a first business to the next idea.</p></div>
-<div class="filter-row" data-filters hidden><div class="filter-buttons" role="group" aria-label="Filter projects"><button type="button" data-filter="all" aria-pressed="true">All work</button>${categories.map(c=>`<button type="button" data-filter="${c.id}" aria-pressed="false">${esc(c.label)}</button>`).join('')}</div><p class="filter-status" data-filter-status role="status" aria-live="polite">${projects.length} projects</p></div>
-<div class="project-grid">${cards}</div></section>
-<section class="about-section wrap" id="about" data-reveal><div><p class="eyebrow">A little about the work</p><p class="about-signature">Ian M.</p></div><div><h2>A lot of this<br><em>starts close to home.</em></h2><p>I’ve made artwork for a podcast I hosted, a business I ran, the teams I play on, and my dad’s fitness retreat. Alongside that personal work, I create identities and graphics for businesses, media, and charity events.</p><div class="personal-details"><p><span>First business</span>A hauling logo featuring our actual work truck, printed on crew shirts.</p><p><span>Behind the microphone</span>Cover art for the podcast I hosted at the University of Iowa.</p><p><span>A family project</span>The visual identity for my dad’s fitness retreat in Nosara.</p></div><p class="process-note">I work with Photoshop, AI generation, and creative direction. Each project includes its tools and context.</p></div></section>
-${contact()}`});
 }
 
 function cialoPage() {
@@ -112,7 +92,7 @@ function projectPage(p,index) {
   const prefix = '../../';
   const isRetreat = p.slug === 'training-room-fitness-retreat';
   const next = projects[(index + 1) % projects.length];
-  const body = `<header class="project-header wrap"><a class="back-link" href="../../#work">← All work</a><div class="project-heading"><div><p class="eyebrow">${esc(p.category.label)} · ${isRetreat ? '2027 edition' : esc(p.year)}</p><h1 class="standard-title">${esc(p.title)}</h1></div></div><div class="project-facts"><div><span>Discipline</span><p>${esc(p.category.label)}</p></div><div><span>Tools & process${isRetreat ? ' · earlier work' : ''}</span><p>${esc(p.toolsLabel)}</p></div></div></header>
+  const body = `<header class="project-header wrap"><a class="back-link" href="../../#work">← All work</a><div class="project-heading"><div><p class="eyebrow">${esc(p.category.label)} · ${isRetreat ? '2027 edition' : p.yearOld ? `${esc(p.yearOld)} artwork · Event postponed to ${esc(p.year)}` : esc(p.year)}</p><h1 class="standard-title">${esc(p.title)}</h1></div></div><div class="project-facts"><div><span>Discipline</span><p>${esc(p.category.label)}</p></div><div><span>Tools & process${isRetreat ? ' · earlier work' : ''}</span><p>${esc(p.toolsLabel)}</p></div></div></header>
 <div class="wrap hero-art">${art(isRetreat?retreat:p.image,prefix,isRetreat?'2027 retreat identity — Nosara, Costa Rica.':p.title,'project-main-art',true)}</div>
 <section class="project-story wrap" data-reveal><p class="eyebrow">The project</p><div><h2>${isRetreat?'A family connection.<br><em>A coastal identity.</em>':'Behind the artwork.'}</h2><p>${isRetreat?'The Training Room is my dad’s fitness retreat in Nosara, Costa Rica. This 2027 edition pairs turquoise lettering with layered sunset colors and hibiscus flowers.':esc(p.description)}</p></div></section>
 ${p.gallery?.length ? `<section class="wrap project-section" data-reveal><div class="section-heading"><h2>Project gallery</h2></div><div class="additional-gallery">${p.gallery.map(item=>art(item,prefix,item.caption || item.alt)).join('')}</div></section>` : ''}
@@ -121,7 +101,7 @@ ${isRetreat?`<section class="wrap project-section" data-reveal><div class="secti
   return shell({title:`${p.title} | Ian Milkowski`,description:isRetreat?'Brand identity for The Training Room, my dad’s fitness retreat in Nosara, Costa Rica. Explore the 2027 artwork and earlier edition.':p.description,route:`projects/${p.slug}/`,socialImage:(isRetreat?retreat:p.image).src,socialAlt:(isRetreat?retreat:p.image).alt,body});
 }
 
-const pages = [{file:'index.html',html:homepage()},{file:'projects/cialo/index.html',html:cialoPage()},{file:'projects/milkplexity/index.html',html:milkplexityPage()},...projects.map((p,i)=>({file:`projects/${p.slug}/index.html`,html:projectPage(p,i)}))];
+const pages = [{file:'index.html',html:await homepage({root,projects,retreat,cialo,milkplexity,cleanWordmark,image,esc,origin})},{file:'projects/cialo/index.html',html:cialoPage()},{file:'projects/milkplexity/index.html',html:milkplexityPage()},...projects.map((p,i)=>({file:`projects/${p.slug}/index.html`,html:projectPage(p,i)}))];
 for (const {file,html} of pages) { await mkdir(path.dirname(path.join(root,file)),{recursive:true}); await writeFile(path.join(root,file),html); }
 const routes = ['', 'projects/cialo/', 'projects/milkplexity/', ...projects.map(p=>`projects/${p.slug}/`)];
 await writeFile(path.join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(route=>`<url><loc>${origin}${route}</loc></url>`).join('')}</urlset>\n`);

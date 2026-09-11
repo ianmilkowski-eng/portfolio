@@ -1,0 +1,30 @@
+[
+  {
+    "src": "assets/projects/american-250-team-challenge.jpg",
+    "width": 536,
+    "height": 800,
+    "alt": "American 250 Team Challenge: vintage flag-filled numerals and Training Room event lettering",
+    "sha256": "1c4c36a330445a74373a9abb01ffde1ad3b5d96dfc9b7f111c9480dec83887dd"
+  },
+  {
+    "src": "assets/projects/american-250-front.jpg",
+    "width": 446,
+    "height": 800,
+    "alt": "American 250 event shirt front graphic",
+    "sha256": "bf4416dc9e043c5a1a09ef1e271954db990849080249f9e6d4e07498defbaa4b"
+  },
+  {
+    "src": "assets/projects/american-250-shirts.jpg",
+    "width": 1000,
+    "height": 773,
+    "alt": "American 250 artwork printed on event shirts",
+    "sha256": "af5d53a156c5e19f2404307c2011b10fbf202cc57a82bb0d2a25846306d4c129"
+  },
+  {
+    "src": "assets/projects/og-card.jpg",
+    "width": 1200,
+    "height": 630,
+    "alt": "Ian Milkowski Creative Portfolio social preview",
+    "sha256": "d110b5bc18d35de3d713ca76eadbe0b54225b8e6c3b584bb511749e41bf1c9d8"
+  }
+]

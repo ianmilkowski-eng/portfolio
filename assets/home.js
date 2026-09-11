@@ -1,0 +1,55 @@
+'use strict';
+
+// Real project URLs and native details remain usable without JavaScript.
+const form=document.getElementById('contactForm');
+form.hidden=false;
+form.addEventListener('submit',event=>{
+  event.preventDefault();
+  if(!form.reportValidity())return;
+  const fields=form.elements;
+  const subject='Project inquiry from '+fields.namedItem('name').value.trim();
+  const body=fields.namedItem('message').value.trim()+'\n\nReply to: '+fields.namedItem('email').value.trim();
+  window.location.href='mailto:ianmilkowski@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+});
+
+const preview=document.getElementById('project-preview');
+const content=preview.querySelector('.preview-content');
+let opener=null,version=0;
+const notify=()=>window.dispatchEvent(new Event('portfolio:previewchange'));
+if(typeof preview.showModal==='function'){
+  document.querySelectorAll('[data-preview]').forEach(link=>{
+    link.addEventListener('click',event=>{
+      if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+      const template=document.getElementById('preview-'+link.dataset.preview);
+      if(!template)return;
+      event.preventDefault();version++;opener=link;
+      content.replaceChildren(template.content.cloneNode(true));
+      content.querySelectorAll('img').forEach(img=>img.loading='eager');
+      preview.showModal();notify();
+    });
+  });
+}
+preview.querySelector('[data-preview-close]').addEventListener('click',()=>preview.close());
+let backdropStart=false;
+preview.addEventListener('pointerdown',event=>{backdropStart=event.target===preview;});
+preview.addEventListener('click',event=>{if(backdropStart&&event.target===preview)preview.close();backdropStart=false;});
+preview.addEventListener('close',()=>{version++;content.replaceChildren();opener?.focus({preventScroll:true});notify();});
+content.addEventListener('click',event=>{
+  const button=event.target.closest('[data-preview-src]');
+  if(!button)return;
+  const request=++version;
+  const candidate=new Image();
+  const status=content.querySelector('[data-preview-status]');
+  status.textContent='Loading artwork…';
+  candidate.onload=()=>{
+    if(request!==version||!preview.open)return;
+    const img=content.querySelector('[data-preview-image]');
+    img.removeAttribute('srcset');img.removeAttribute('sizes');
+    img.src=candidate.src;img.alt=button.dataset.previewAlt;
+    img.width=candidate.naturalWidth;img.height=candidate.naturalHeight;
+    content.querySelectorAll('[data-preview-src]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+    status.textContent='';
+  };
+  candidate.onerror=()=>{if(request===version)status.textContent='This image could not load. Open the full project to try again.';};
+  candidate.src=button.dataset.previewSrc;
+});

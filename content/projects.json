@@ -1,5 +1,44 @@
 [
   {
+    "slug": "american-250-team-challenge",
+    "title": "American 250 Team Challenge",
+    "description": "Commemorative graphic for The Training Room's July 4th team challenge marking America's 250th. Vintage Americana lockup with flag-filled numerals, printed front and back on event shirts.",
+    "category": {
+      "id": "charity-events",
+      "label": "Charity & Events"
+    },
+    "tags": [
+      "AI Generation",
+      "Creative Direction"
+    ],
+    "toolsLabel": "AI Generation + Creative Direction",
+    "year": "2026",
+    "feature": true,
+    "image": {
+      "src": "assets/projects/american-250-team-challenge.jpg",
+      "width": 536,
+      "height": 800,
+      "alt": "American 250 Team Challenge: vintage flag-filled numerals and Training Room event lettering",
+      "sha256": "1c4c36a330445a74373a9abb01ffde1ad3b5d96dfc9b7f111c9480dec83887dd"
+    },
+    "gallery": [
+      {
+        "src": "assets/projects/american-250-front.jpg",
+        "width": 446,
+        "height": 800,
+        "alt": "American 250 event shirt front graphic",
+        "sha256": "bf4416dc9e043c5a1a09ef1e271954db990849080249f9e6d4e07498defbaa4b"
+      },
+      {
+        "src": "assets/projects/american-250-shirts.jpg",
+        "width": 1000,
+        "height": 773,
+        "alt": "American 250 artwork printed on event shirts",
+        "sha256": "af5d53a156c5e19f2404307c2011b10fbf202cc57a82bb0d2a25846306d4c129"
+      }
+    ]
+  },
+  {
     "slug": "fuming-takes",
     "title": "Fuming Takes",
     "description": "Updated professional logo for a sports podcast produced in partnership with Adapting Social. I created the original vision and prototype, then designed this polished final version.",
@@ -43,7 +82,7 @@
   {
     "slug": "row-for-hope-2026",
     "title": "Row for Hope 2026",
-    "description": "Pre-release logo for Hero Events' annual Brain Cancer Awareness charity event. Shield-style badge designed to convey strength and purpose for the upcoming year.",
+    "description": "Pre-release logo for Hero Events' annual Brain Cancer Awareness charity event. Shield-style badge designed to convey strength and purpose. The event was delayed a year due to unforeseen circumstances, and this will be the logo for next year's event as well.",
     "category": {
       "id": "charity-events",
       "label": "Charity & Events"
@@ -53,13 +92,14 @@
       "Creative Direction"
     ],
     "toolsLabel": "AI Generation + Creative Direction",
-    "year": "2026",
+    "year": "2027",
     "image": {
       "src": "assets/projects/row-for-hope-2026.jpg",
       "width": 800,
       "height": 800,
       "alt": "Row for Hope 2026"
-    }
+    },
+    "yearOld": "2026"
   },
   {
     "slug": "row-for-hope-2025",

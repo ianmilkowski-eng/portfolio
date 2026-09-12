@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import { flightProgress,tilePose } from '../assets/flight-geometry.js';
 
 // Verify varied editorial artwork lands exactly at every desktop width.
-for(const width of [900,1024,1250,1440,1920]){
+for(const width of [900,1024,1250,1440,1920,2560]){
   const height=900,heroBottom=450,gridY=2450;
   const progress=[0,500,1100,1900,3200].map(scroll=>flightProgress({width,height,scroll,heroBottom,gridY}));
   assert.equal(progress[0].p,0);assert.equal(progress.at(-1).p,1);
@@ -19,6 +19,25 @@ for(const width of [900,1024,1250,1440,1920]){
     const start=tilePose(c,i,{...ctx,...progress[0]});
     assert.ok(Math.max(w,h)*start.scale<=progress[0].stripW+.001, 'Every aspect ratio fits the moving strip');
     for(const p of progress){const mid=tilePose(c,i,{...ctx,...p});Object.values(mid).forEach(v=>assert.ok(Number.isFinite(v)));}
+  }
+}
+
+// Both sides of every recycle seam must be outside the screen, even at ultrawide sizes.
+for(const width of [900,1250,1440,1920,2560]){
+  const stripW=Math.min(Math.max(width*.24,300),380),edge=stripW+26;
+  const total=Math.max(5*edge,width+2*edge),spacing=total/5;
+  const c={x:60,y:2500,w:620,h:620,hover:0};
+  const ctx={width,scroll:0,count:5,gridX:40,gridY:2450,gridW:1120,gridH:4300,stripW,p:0,yBase:540};
+  const halfExtent=stripW*(Math.cos(11*Math.PI/180)+Math.sin(11*Math.PI/180))/2+65;
+  for(let i=0;i<5;i++){
+    const left=tilePose(c,i,{...ctx,drift:i*spacing-.001});
+    const right=tilePose(c,i,{...ctx,drift:i*spacing+.001});
+    assert.ok(left.x+c.x+c.w/2+halfExtent<0,'Artwork exits completely before recycling');
+    assert.ok(right.x+c.x+c.w/2-halfExtent>width,'Artwork enters smoothly from beyond the right edge');
+    const launch={...c,x:ctx.gridX,y:ctx.gridY};
+    const before=tilePose(launch,0,{...ctx,drift:0,p:0});
+    const after=tilePose(launch,0,{...ctx,drift:0,p:1e-8});
+    assert.ok(Math.abs(before.x-after.x)<.001,'Beginning the scroll transition cannot clamp a card to a new position');
   }
 }
 
@@ -59,7 +78,7 @@ reduced.matches=true;fire(reduced,'change');assert.equal(queue.size,0);assert.ok
 reduced.matches=false;fire(reduced,'change');assert.equal(queue.size,1);assert.ok(!body.classList.contains('static'));
 wide.matches=false;fire(wide,'change');assert.equal(queue.size,0);assert.ok(body.classList.contains('static'));
 wide.matches=true;fire(wide,'change');assert.equal(queue.size,1);assert.ok(!body.classList.contains('static'));
-console.log('PASS: 5 viewport geometries, exact landing, monotonic scroll, finite poses, nested layout measurement, disclosure resizing, pause/resume, reverse scrolling, idle/hidden cancellation, responsive and live reduced-motion changes.');
+console.log('PASS: 6 viewport geometries, offscreen loop recycling, exact landing, monotonic scroll, finite poses, nested layout measurement, disclosure resizing, pause/resume, reverse scrolling, idle/hidden cancellation, responsive and live reduced-motion changes.');
 
 // A lazily loaded iframe can expose a different frame timestamp origin.
 // Exercise the real player, including pause/resume, without a canvas renderer.
@@ -75,7 +94,7 @@ class FakeEffect {
   resize(){} render(t){lastRendered=t;} pause(){} dispose(){}
 }
 const playerContext={Math,String,Number,document:playerDocument,window:eventTarget(),matchMedia:()=>playerMotion,devicePixelRatio:1,
-  performance:{now:()=>90000},CialoHologram:FakeEffect,ResizeObserver:class{observe(){} disconnect(){}},
+  performance:{now:()=>90000},URLSearchParams,location:{search:''},CialoHologram:FakeEffect,ResizeObserver:class{observe(){} disconnect(){}},
   requestAnimationFrame(fn){const id=++playerId;playerQueue.set(id,fn);return id;},cancelAnimationFrame:id=>playerQueue.delete(id)};
 vm.runInNewContext(await readFile(new URL('../assets/cialo/interactive/player.js',import.meta.url),'utf8'),playerContext);
 const settle=async()=>{for(let i=0;i<10;i++)await Promise.resolve();};
@@ -88,3 +107,14 @@ fire(playerElements.get('toggle'),'click');await settle();playerStep(5000);asser
 playerStep(8500);assert.equal(lastRendered,4.4);assert.equal(playerQueue.size,0);
 assert.equal(playerElements.get('time').textContent,'4.4 / 4.4 s');
 console.log('PASS: lazy iframe clock origin, player pause/resume, duration clamping, and playback completion.');
+
+// Expanded playback is explicitly requested by the parent click, and Escape
+// can leave the dialog even when focus is inside the frame's controls.
+let closeRequest;
+playerContext.location={search:'?play=1',origin:'https://portfolio.example'};
+playerContext.window.parent={postMessage:(message,origin)=>{closeRequest={message,origin};}};
+vm.runInNewContext(await readFile(new URL('../assets/cialo/interactive/player.js',import.meta.url),'utf8'),playerContext);
+await settle();assert.equal(playerQueue.size,1,'Expanded user-initiated player begins playback');
+let prevented=false;fire(playerDocument,'keydown',{key:'Escape',preventDefault(){prevented=true;}});
+assert.equal(prevented,true);assert.deepEqual(closeRequest,{message:'cialo:close',origin:'https://portfolio.example'});
+console.log('PASS: expanded playback starts on request and Escape targets only the same-origin parent.');

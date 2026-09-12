@@ -156,4 +156,15 @@
   });
   updateTime();
   setMotionPreference();
+  // This URL is opened only after the visitor chooses Play & expand.
+  const expanded=new URLSearchParams(location.search).get('play')==='1';
+  if(expanded){
+    document.addEventListener('keydown',event=>{
+      if(event.key==='Escape'&&window.parent!==window){
+        event.preventDefault();
+        window.parent.postMessage('cialo:close',location.origin);
+      }
+    });
+    play(true);
+  }
 })();

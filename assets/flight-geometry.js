@@ -10,11 +10,12 @@ export function flightProgress({width,height,scroll,heroBottom,gridY}) {
   return {stripW, p:scroll<start?0:clamp((scroll-start-hold)/distance,0,1), yBase:scroll<start?anchor-scroll:pin};
 }
 export function tilePose(c,i,{width,scroll,count,drift,gridX,gridY,gridW,gridH,stripW,p,yBase}) {
-  const spacing=stripW+26,total=Math.max(count,4)*spacing;
-  let x=((i*spacing-drift)%total+total)%total-spacing;
+  // The five-card loop must wrap beyond both viewport edges, including rotation
+  // and shadows. A count-only loop recycled cards while still visible on wide screens.
+  const edge=stripW+26,total=Math.max(count*edge,width+2*edge),spacing=total/count;
+  const x=((i*spacing-drift)%total+total)%total-edge;
   const delay=(c.y-gridY)/gridH*.20+(c.x-gridX)/gridW*.06;
   const k=ease(clamp((p-delay)/.74,0,1));
-  if(k>0)x=clamp(x,-stripW,width+stripW);
   const y=yBase+(x-width/2)*-.11-(c.hover||0)*12*(1-k);
   return {x:mix(x-(c.x+c.w/2),0,k),y:mix(y-(c.y-scroll+c.h/2),0,k)-Math.sin(k*Math.PI)*42,rotation:-11*(1-Math.min(k*1.35,1)),scale:mix(stripW/Math.max(c.w,c.h),1,k)};
 }

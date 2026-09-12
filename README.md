@@ -24,7 +24,9 @@ The homepage leads with Training Room Fitness Retreat 2027, Ciało, Milkplexity,
 
 Real project links and native Craft/FAQ disclosures work without JavaScript. Native dialogs provide focus containment, Escape, and focus return. Artwork loads use request guards to avoid stale results after fast navigation. The contact form opens the visitor’s mail app and does not send messages or store submissions itself.
 
-Ciało’s original 4.4-second animation has explicit playback, replay, and scrubbing controls, plus MP4 and GIF originals. No media autoplays.
+Ciało’s main homepage logo and its Watch link open an enlarged native dialog. The 4.4-second animation starts from that deliberate click, with pause, replay, and scrubbing controls. Closing the dialog removes the player. The project page retains the interactive player plus MP4 and GIF originals. Reduced-motion visitors see the finished logo.
+
+The desktop photo loop spans at least the viewport plus two full offscreen margins, so recycling happens beyond the visible artwork and shadow. Lead images load eagerly, with only the first given high priority; unloaded artwork fades in after decoding.
 
 ## Publish to the existing site
 

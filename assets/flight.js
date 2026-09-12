@@ -32,7 +32,7 @@ function wake(){if(F.on&&!document.hidden&&!raf)raf=requestAnimationFrame(frame)
 function frame(t){
   raf=0;
   if(!F.on||document.hidden)return;
-  const dt=Math.min((t-F.lastT)/1000,.05)||0; F.lastT=t;
+  const dt=Math.max(0,Math.min((t-F.lastT)/1000,.05))||0; F.lastT=t;
   const state=flightProgress({width:innerWidth,height:innerHeight,scroll:scrollY,heroBottom:F.heroBottom,gridY:F.gridY});
   const {p,stripW,yBase}=state;
   if(p>=1){if(!F.landed){clearFlight();F.landed=true;}return;}

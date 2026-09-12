@@ -18,7 +18,7 @@ const arrow = '<span aria-hidden="true">↗</span>';
 const image = (item, prefix = '', options = {}) => {
   const variants = item.variants || [];
   const src = variants.at(-1)?.src || item.src;
-  return `<img src="${prefix}${esc(src)}"${variants.length ? ` srcset="${variants.map(v => `${prefix}${esc(v.src)} ${v.width}w`).join(', ')}" sizes="${options.sizes || '(max-width: 680px) 92vw, (max-width: 1100px) 46vw, 31vw'}"` : ''} width="${item.width}" height="${item.height}" alt="${esc(options.alt ?? item.alt)}" loading="${options.eager ? 'eager' : 'lazy'}" decoding="async"${options.eager ? ' fetchpriority="high"' : ''}${options.extra || ''}>`;
+  return `<img src="${prefix}${esc(src)}"${variants.length ? ` srcset="${variants.map(v => `${prefix}${esc(v.src)} ${v.width}w`).join(', ')}" sizes="${options.sizes || '(max-width: 680px) 92vw, (max-width: 1100px) 46vw, 31vw'}"` : ''} width="${item.width}" height="${item.height}" alt="${esc(options.alt ?? item.alt)}" loading="${options.eager ? 'eager' : 'lazy'}" decoding="async"${options.eager ? ` fetchpriority="${options.priority || 'high'}"` : ''}${options.extra || ''}>`;
 };
 const art = (item, prefix, caption, classes = '', eager = false) => `<figure class="art ${classes}"><a class="art-link" href="${prefix}${item.src}" data-lightbox data-caption="${esc(caption)}" aria-label="Enlarge: ${esc(item.alt)}">${image(item, prefix, {eager, sizes:'(max-width: 680px) 92vw, 80vw'})}<span class="enlarge" aria-hidden="true">Expand ${arrow}</span></a><figcaption>${esc(caption)}</figcaption></figure>`;
 
